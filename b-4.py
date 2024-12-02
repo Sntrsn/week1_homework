@@ -1,6 +1,3 @@
-from statistics import mean
-
-
 def main():
     # 3都府県のいくつかの駅名とある日の最高気温(単位: ℃)のデータを辞書として持っています
     weather_information = [
@@ -15,16 +12,14 @@ def main():
     ]
 
     # Q1. 全国の平均気温を計算してください(9.5となればOK)
-    ave = mean(data["temperature"] for data in weather_information)
-    print(format(ave, ".2f"))
+    weather_information.get("temperature")
+
+    ave_tem = sum(weather_information.keys("temperature")) / len(weather_information)
+    print("平均気温：", ave_tem)
 
     # Q2. 大阪府のすべての駅名をカンマ区切りで出力してください( '梅田,大阪,堺' となればOK)
-    name = [data["station"] for data in weather_information if data["prefecture"] == "大阪府"]
-    print(f" {','.join(name)}")
 
     # Q3. 福岡県の平均気温を計算してください(14.0となればOK)
-    ave_hukuoka = mean(data["temperature"] for data in weather_information if data["prefecture"] == "福岡県")
-    print(ave_hukuoka)
 
 
 if __name__ == "__main__":
